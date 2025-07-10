@@ -50,8 +50,9 @@ function Detail(props) {
 
          // const response = await CommentAPI.getCommentProduct(query);
          // console.log(response);
+         const response = [];
 
-         set_list_comment(response || []);
+         set_list_comment(response);
       };
 
       fetchData();
@@ -111,7 +112,8 @@ function Detail(props) {
             // const response = await CommentAPI.getCommentProduct(query);
             // console.log(response);
 
-            set_list_comment(response || []);
+            const response = [];
+            set_list_comment(response);
          };
 
          fetchData();
