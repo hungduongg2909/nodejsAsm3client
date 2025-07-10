@@ -7,14 +7,15 @@ import { useSelector } from "react-redux";
 
 import io from "socket.io-client";
 // const socket = io("http://54.254.177.24:5000", { transports: ["websocket"] });
-const socket = io(getSocketURL(), { transports: ["websocket"] });
-function getSocketURL() {
-   if (window.location.hostname === "localhost") {
-      return "http://localhost:5000";
-   } else {
-      return `${window.location.protocol}//${window.location.hostname}:5000`;
-   }
-}
+const socket = io(process.env.REACT_APP_SOCKET_URL, { transports: ["websocket"] });
+// const socket = io(getSocketURL(), { transports: ["websocket"] });
+// function getSocketURL() {
+//    if (window.location.hostname === "localhost") {
+//       return "http://localhost:5000";
+//    } else {
+//       return `${window.location.protocol}//${window.location.hostname}:5000`;
+//    }
+// }
 
 function Chat(props) {
    const [activeChat, setActiveChat] = useState(false);
