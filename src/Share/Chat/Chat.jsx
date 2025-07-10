@@ -7,7 +7,10 @@ import { useSelector } from "react-redux";
 
 import io from "socket.io-client";
 // const socket = io("http://54.254.177.24:5000", { transports: ["websocket"] });
-const socket = io(process.env.REACT_APP_SOCKET_URL, { transports: ["websocket"] });
+const socket = io(process.env.REACT_APP_SOCKET_URL, {
+   transports: ["websocket"],
+   withCredentials: true,
+});
 // const socket = io(getSocketURL(), { transports: ["websocket"] });
 // function getSocketURL() {
 //    if (window.location.hostname === "localhost") {
@@ -61,7 +64,7 @@ function Chat(props) {
 
       // Check if roomId is null then create new Room
       if (!roomId) {
-         const data = {userId: localStorage.getItem("id_user")};
+         const data = { userId: localStorage.getItem("id_user") };
          const newRoomData = await ChatRoomsAPI.createNewRoom(data);
          setRoomId(newRoomData._id);
          localStorage.setItem("njs_asm3_roomId", newRoomData._id);
@@ -168,7 +171,9 @@ function Chat(props) {
                                     key={value._id}
                                  >
                                     <div className="media-body">
-                                       <p>{value.sender}: {value.message}</p>
+                                       <p>
+                                          {value.sender}: {value.message}
+                                       </p>
                                     </div>
                                  </div>
                               ) : (
