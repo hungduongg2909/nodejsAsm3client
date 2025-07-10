@@ -48,10 +48,10 @@ function Detail(props) {
 
          const query = "?" + queryString.stringify(params);
 
-         const response = await CommentAPI.getCommentProduct(query);
-         console.log(response);
+         // const response = await CommentAPI.getCommentProduct(query);
+         // console.log(response);
 
-         set_list_comment(response);
+         set_list_comment(response || []);
       };
 
       fetchData();
@@ -86,8 +86,8 @@ function Detail(props) {
 
          const query = "?" + queryString.stringify(params);
 
-         const response = await CommentAPI.postCommentProduct(query);
-         console.log(response);
+         // const response = await CommentAPI.postCommentProduct(query);
+         // console.log(response);
 
          set_load_comment(true);
       };
@@ -108,10 +108,10 @@ function Detail(props) {
 
             const query = "?" + queryString.stringify(params);
 
-            const response = await CommentAPI.getCommentProduct(query);
-            console.log(response);
+            // const response = await CommentAPI.getCommentProduct(query);
+            // console.log(response);
 
-            set_list_comment(response);
+            set_list_comment(response || []);
          };
 
          fetchData();
